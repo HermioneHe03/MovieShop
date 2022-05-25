@@ -12,6 +12,7 @@ namespace Application_Core.Contracts.Services
     {
        //home/index action method
         Task<List<MovieCardModel>> GetTop30GrossingMovies();
+        Task<List<MovieCardModel>> GetTop30RatingMovies();
 
         Task<MovieDetailsModel> GetMovieDetails(int id);
         Task<List<MovieCardModel>> GetMoviesOfGenre(int genreId);
