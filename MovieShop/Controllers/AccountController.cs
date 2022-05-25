@@ -1,10 +1,14 @@
-﻿using System.Security.Claims;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using Application_Core.Contracts.Services;
 using Application_Core.Exceptions;
 using Application_Core.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
+using Microsoft.IdentityModel.Tokens;
 
 namespace MovieShopMVC.Controllers
 {
@@ -91,6 +95,8 @@ namespace MovieShopMVC.Controllers
             
             return View();
         }
+
+        
 
     }
 }
