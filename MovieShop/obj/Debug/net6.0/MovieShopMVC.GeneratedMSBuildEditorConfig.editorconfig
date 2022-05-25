@@ -47,12 +47,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/Shared/LoginInfoPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luSW5mb1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/Shared/MovieCardPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vdmllQ2FyZFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/Shared/_LoginInfoPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkluZm9QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -61,6 +61,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/User/Favorites.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGYXZvcml0ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/User/Purchase.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQdXJjaGFzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Hermi/source/repos/May 2022/MovieShop/Views/_ViewImports.cshtml]

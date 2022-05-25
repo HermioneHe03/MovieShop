@@ -298,3 +298,4 @@ C:\Users\Hermi\source\repos\May 2022\MovieShop\obj\Debug\net6.0\ref\MovieShopMVC
 C:\Users\Hermi\source\repos\May 2022\MovieShop\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Hermi\source\repos\May 2022\MovieShop\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Hermi\source\repos\May 2022\MovieShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Hermi\source\repos\May 2022\MovieShop\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
