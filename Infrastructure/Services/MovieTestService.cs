@@ -62,6 +62,11 @@ namespace Infrastructure.Services
             return movieCards;
         }
 
+        public Task<List<MovieCardModel>> GetTop30RatingMovies()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<PagedResultSet<MovieCardModel>> GetTopPurchasedMoviesByPagination(int pageSize, int pageNumber)
         {
             throw new NotImplementedException();

@@ -113,6 +113,18 @@ namespace Infrastructure.Services
             return movieCards;
         }
 
+        public async Task<List<MovieCardModel>> GetTop30RatingMovies()
+        {
+            var movies = await _movieRepository.GetTop30RatingMovies();
+            var movieCards = new List<MovieCardModel>();
+
+            foreach (var movie in movies)
+            {
+                movieCards.Add(MovieCardModel.FromEntity(movie));
+            }
+
+            return movieCards;
+        }
         public async Task<PagedResultSet<MovieCardModel>> GetTopPurchasedMoviesByPagination(int pageSize, int page)
         {
             var pagedMovies = await _movieRepository.GetTopPurchasedMovies(pageSize, page);
