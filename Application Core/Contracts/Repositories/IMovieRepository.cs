@@ -11,7 +11,7 @@ namespace Application_Core.Contracts.Repositories
     public interface IMovieRepository: IRepository<Movie>
     {
         //
-        Task<List<Movie>> Get30HighestGrossingMovies();
+        Task<List<Movie>> GetTop30GrossingMovies();
         Task<List<Movie>> GetTop30RatingMovies();
         Task<List<Cast>> GetCastsByMovie(int movieId);
         Task<List<MovieCast>> GetMovieCastsByMovie(int movieId);
@@ -19,7 +19,8 @@ namespace Application_Core.Contracts.Repositories
         Task<List<Movie>> GetMoviesOfGenre(int genreId);
         Task<List<Review>> GetReviewsOfMovie(int movieId);
         Task<List<Trailer>> GetTrailersOfMovie(int movieId);
-        Task<PagedResultSet<Movie>> GetMoviesByTitle(int pageSize = 30, int page = 1, string title = "");
-        Task<PagedResultSet<Movie>> GetTopPurchasedMovies(int pageSize = 30, int page = 1);
+        Task<PagedResultSet<Movie>> GetMoviesByTitle(int pageSize = 30, int pageNumber = 1, string title = "");
+        Task<PagedResultSet<Movie>> GetTopPurchasedMovies(int pageSize = 30, int pageNumber = 1);
+        Task<PagedResultSet<Movie>> MoviesByGenre(int genreId, int pageSize = 30, int pageNumber = 1);
     }
 }
