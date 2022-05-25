@@ -149,6 +149,20 @@ namespace Infrastructure.Services
             return reviewModels;
         }
 
-        
+        public async Task<PagedResultSet<MovieCardModel>> GetMoviesByGenrePagination(int genreId, int pageSize = 30, int pageNumber = 1)
+        {
+            var pagedMovies = await _movieRepository.GetMoviesOfGenre(genreId);
+            var movieCards = new List<MovieCardModel>();
+
+            movieCards.AddRange(pagedMovies.Select(x => new MovieCardModel
+            {
+                Id = x.Id,
+                PosterUrl = x.PosterUrl,
+                Title = x.Title,
+            }));
+            return new PagedResultSet<MovieCardModel>(movieCards, pageNumber, pageSize, pagedMovies.Count);
+        }
+
+
     }
 }

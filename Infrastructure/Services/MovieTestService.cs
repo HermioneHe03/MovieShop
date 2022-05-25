@@ -28,6 +28,8 @@ namespace Infrastructure.Services
             throw new NotImplementedException();
         }
 
+      
+
         public Task<PagedResultSet<MovieCardModel>> GetMoviesByPagination(int pageSize, int page, string title)
         {
             throw new NotImplementedException();
