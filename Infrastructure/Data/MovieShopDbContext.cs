@@ -1,15 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Application_Core.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data
 {
-    public class MovieShopDbContext : DbContext
+    public class MovieShopDbContext:DbContext
     {
         public MovieShopDbContext(DbContextOptions<MovieShopDbContext> options) : base(options)
         {
@@ -17,7 +17,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Genre> Genre { get; set; }
 
         public DbSet<Trailer> Trailer { get; set; }
         public DbSet<MovieGenre> MovieGenre { get; set; }
@@ -31,8 +31,6 @@ namespace Infrastructure.Data
         public DbSet<Purchase> Purchase { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
-
-        // to use Fluent API you need to override OnModelCreating
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

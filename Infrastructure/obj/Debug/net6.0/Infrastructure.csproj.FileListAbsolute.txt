@@ -13,3 +13,5 @@ C:\Users\Hermi\source\repos\May 2022\Infrastructure\obj\Debug\net6.0\Infrastruct
 C:\Users\Hermi\source\repos\May 2022\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
 C:\Users\Hermi\source\repos\May 2022\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
 C:\Users\Hermi\source\repos\May 2022\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+C:\Users\Hermi\source\repos\May 2022\Infrastructure\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+C:\Users\Hermi\source\repos\May 2022\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
