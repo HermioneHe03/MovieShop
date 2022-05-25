@@ -22,9 +22,14 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 
 // Inject DbContextOptions with connection string into MovieShopDbContext
 
+//builder.Services.AddDbContext<MovieShopDbContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("MovieShopDbConnection");
+//});
+
 builder.Services.AddDbContext<MovieShopDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MovieShopDbConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString(name: "MovieShopDbConnection"));
 });
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
