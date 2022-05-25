@@ -21,6 +21,13 @@ namespace Infrastructure.Services
         {
             _userRepository = userRepository;
         }
+
+        public async Task<UserLoginResponseModel> GetUserById(int id)
+        {
+            var user = await _userRepository.GetById(id);
+            var userModel = UserLoginResponseModel.FromEntity(user);
+            return userModel;
+        }
         public async Task<UserLoginResponseModel> LoginUser(string email, string password)
         {
             // go to database and get the user row by email

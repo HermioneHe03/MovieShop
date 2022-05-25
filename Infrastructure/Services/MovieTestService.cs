@@ -28,6 +28,21 @@ namespace Infrastructure.Services
             throw new NotImplementedException();
         }
 
+        public Task<PagedResultSet<MovieCardModel>> GetMoviesByPagination(int pageSize, int page, string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<MovieCardModel>> GetMoviesOfGenre(int genreId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<MovieReviewResponseModel>> GetReviewsOfMovie(int movieId)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<MovieCardModel>> GetTop30GrossingMovies()
         {
 
@@ -45,6 +60,11 @@ namespace Infrastructure.Services
                 });
             }
             return movieCards;
+        }
+
+        public Task<PagedResultSet<MovieCardModel>> GetTopPurchasedMoviesByPagination(int pageSize, int pageNumber)
+        {
+            throw new NotImplementedException();
         }
     }
 }
