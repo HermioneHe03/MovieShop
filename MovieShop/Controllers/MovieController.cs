@@ -31,10 +31,13 @@ namespace MovieShopMVC.Controllers
             return View(movieDetails);
         }
 
-        public async Task<IActionResult> MoviesByGenre(int id, int pageSize=30, int pageNumber=1)
+        [HttpGet]
+        public async Task<IActionResult> Genre(int id)
         {
-            var pagedMovies = await _movieService.GetMoviesByGenrePagination(id, pageSize, pageNumber);
-            return View("PagedMovies", pagedMovies);
+            int genreId = id;
+            var movieModels = await _movieService.GetMoviesOfGenre(genreId);
+
+            return View(movieModels);
         }
     }
 }
