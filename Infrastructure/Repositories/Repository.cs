@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Application_Core.Contracts.Repositories;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -17,26 +18,28 @@ namespace Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<T> Add(T entity)
+        public virtual async Task<T> Add(T entity)
         {
             _dbContext.Set<T>().Add(entity);
             await _dbContext.SaveChangesAsync();
             return entity;
         }
 
-        public Task<T> Delete(int id)
+        public virtual Task<T> Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public virtual async Task<IEnumerable<T>> GetAll()
         {
-            throw new NotImplementedException();
+            var data = await _dbContext.Set<T>().ToListAsync();
+            return data;
         }
 
         public async virtual Task<T> GetById(int id)
         {
-            throw new NotImplementedException();
+            var entity = await _dbContext.Set<T>().FindAsync(id);
+            return entity;
         }
 
         public async virtual Task<T> Update(T entity)
