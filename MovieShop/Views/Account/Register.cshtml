@@ -4,42 +4,46 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
 
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
+    <div class="col-md-4" style="margin-left: auto;margin-right: auto;">
+        <form id="registerform" method="post" action="/Account/Register">
+            <h1 class="h3 mb-3 fw-normal">Register</h1>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="form-floating">
+                <input  type="email" class="form-control" id="floatingInput" name="Email" placeholder="name@example.com">
+                <label for="floatingInput">Email</label>
+                <span class="error-msg color-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+            <div class="form-floating">
+                <input  type="text" class="form-control" id="floatingFistname" name="Firstname" placeholder="FirstName">
+                <label  for="floatingFistname">First Name</label>
+                <span class="error-msg color-danger field-validation-valid" data-valmsg-for="Firstname" data-valmsg-replace="true"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+            <div class="form-floating">
+                <input  type="text" class="form-control" id="floatingLastname" name="Lastname" placeholder="LastName">
+                <label  for="floatingLastname">Last Name</label>
+                <span class="error-msg color-danger field-validation-valid" data-valmsg-for="Lastname" data-valmsg-replace="true"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="form-floating">
+                <input  type="password" class="form-control" id="floatingPassword" name="Password" placeholder="Password">
+                <label  for="floatingPassword">Password</label>
+                <span class="error-msg color-danger field-validation-valid" style="color: red;" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" class="form-control" />
-                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password" >
+                <label  for="floatingConfirmPassword">Confirm Password</label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-floating">
+                <<input  type="date" class="form-control" id="floatingDOB" name="DateOfBirth" placeholder="DOB">
+                <label  for="floatingDOB">Date Of Birth</label>
+                <span class="error-msg color-danger field-validation-valid" data-valmsg-for="DateOfBirth" data-valmsg-replace="true"></span>
             </div>
+           <button class="btn btn-lg btn-dark" style="margin-top: 40px; " type="submit" formaction="/account/register">
+                 Register
+           </button>
         </form>
     </div>
 </div>

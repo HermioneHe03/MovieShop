@@ -1,126 +1,133 @@
-﻿@using Application_Core.Entities
-@model Application_Core.Models.MovieDetailsModel
+﻿@model Application_Core.Models.MovieDetailsModel;
 
-<div class="container-fluid" style="margin:0px">
-    <div class="row" style="background-image:url(@Model.BackdropUrl)">
-        <div class="col-4"> 
-            <img src = "@Model.PosterUrl" class="float-end" >
+<div class="container-fluid">
+    <div class="row" style="background-image: url('@Model.BackdropUrl');height: 300px">
+
+        <div class="col-xl-4 col-sm-3 text-center">
+            <img src="@Model.PosterUrl" height= 300px alt="@Model.Title">
         </div>
-        <div class="col-4" style="color:white">
-            <div class="row">
-                <p class="text-start fw-bolder mb-2" style="font-size:25px; font-style:">
-                    @Model.Title
-                </p>
-            </div>
-            <div class="row">
-                    <p class="text-start mb-2" style="font-size:6px">
-                        @Model.Tagline
-                    </p>
-            </div>            
-            <div class="row">
-                <div class="col-4">
-                    <p class="text-start mb-2" style="font-size:10px">
-                        @Model.RunTime m| @Model.ReleaseDate.Value.ToString("yyyy")
-                    </p>
-                </div>
-                <div class="col-8" style="font-size:8px">
-                    <ul class="list-inline">
-                    @foreach(var Genre in Model.Genres)
-                    {
-                       <li class="list-inline-item" style="background-color:gray; border-radius:5px; padding:2px; margin-right:3px">@Genre.Name</li> 
-                    }
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <p><span class="badge bg-success">@Model.Rating</span></p>
-            </div>
-            <div>
-                    <p class="text-start mb-2" style="font-size:10px">
-                        @Model.Overview
-                    </p>
-            </div>
-            
+
+        <div class="col-xl-4 col-sm-5 text-white pt-2">
+            <h2>@Model.Title</h2>
+            <span style="font-size:10px;color:grey">@Model.Tagline</span><br />
+            <span style="font-size:15px;color:grey">@Model.RunTime m | @Model.ReleaseDate.Value.ToString("yyyy")</span>
+            <ul class="list-inline-item">
+                @foreach (var genre in Model.Genres)
+                {
+                    <li class="badge text-white bg-grey">@genre.Name</li>
+                }
+            </ul><br />
+            <span class="badge bg-success text-white mb-2">
+               @Model.AvgRating
+            </span><br />
+            <span style="font-size: 13px">@Model.Overview</span>
         </div>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <div class="col">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Review
-                </button>
-            
-                <br>
-            
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#buyMovieModel">
-                    BUY $@Model.Price
-                </button>
-            
-                <br>
-            
-                <button type="button" class="btn btn-default btn-sm" onclick="AddFavorite(@Model.Id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    Favorite
-                
-                    <script>
-                    function AddFavorite(movieId) {
-                        xmlhttp = new XMLHttpRequest();
-                        xmlhttp.open("POST", "/User/AddFavorite", true);
-                        var FD = new FormData();
-                        FD.append("movieId", movieId);
- 
-                        xmlhttp.send(FD);
-                    }
-                </script>
-                </button>
-            
-                <partial name="_ReviewModal"/>
-                <partial name="_PurchaseModal"/>
-            
+
+        <div class="col-xl-4 col-sm-4 pt-5" style="text-align:right">            
+            <button type="button" class="btn btn-outline border-white text-white mb-2" style="width: 200px" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              REVIEW
+            </button>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdrop">Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="text-align:left">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger">Rating</button>
+                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1</a></li>
+                            <li><a class="dropdown-item" href="#">2</a></li>
+                            <li><a class="dropdown-item" href="#">3</a></li>
+                            <li><a class="dropdown-item" href="#">4</a></li>
+                            <li><a class="dropdown-item" href="#">5</a></li>
+                            <li><a class="dropdown-item" href="#">6</a></li>
+                            <li><a class="dropdown-item" href="#">7</a></li>
+                            <li><a class="dropdown-item" href="#">8</a></li>
+                            <li><a class="dropdown-item" href="#">9</a></li>
+                            <li><a class="dropdown-item" href="#">10</a></li>
+                        </ul>
+                     </div>
+                     <div class="mb-3">
+                        <label for="reviews" class="form-label">Write Reviews</label>
+                        <textarea class="form-control" id="reviews" rows="3"></textarea>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </div>
             </div>
-        }
+            <br /> 
+            <button type="button" class="btn btn-light" style="width: 200px" data-bs-toggle="modal" data-bs-target="#PurchaseMod">
+              BUY
+            </button> 
+            <div class="modal fade" id="PurchaseMod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="PurchaseMod">Purchase Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" style="text-align:left">
+                    <img src="@Model.PosterUrl" height=200px />
+                    <span>Price is: @Model.Price</span>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Purchase</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
     </div>
-    <div class="row">
-        <div class="col-4">
-            <div class="row">
-                <p>
-                    MOVIE FACTS
-                </p>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Released Date <span class="badge rounded-pill bg-secondary">@Model.ReleaseDate.Value.ToString("MMMM dd, yyyy")</span></li>
-                  <li class="list-group-item">Run Time <span class="badge rounded-pill bg-secondary">@Model.RunTime</span></li>
-                  <li class="list-group-item">Box Office <span class="badge rounded-pill bg-secondary">@Model.Revenue</span></li>
-                  <li class="list-group-item">Budget <span class="badge rounded-pill bg-secondary">@Model.Budget</span></li>
-                  <li class="list-group-item"></li>
-                </ul>
-            </div>
-            <div class="row">
-                <p>
-                    TRAILERS
-                </p>
-                <ul class="list-group list-group-flush">
-                    @foreach(var trailer in Model.Trailers)
-                    {
-                        <a href="@trailer.TrailerUrl" class="list-group-item list-group-item-action">@trailer.Name</a>
-                    }
 
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 p-3 mb-2 bg-secondary bg-opacity-10">
+            <div class="row mt-2 mb-5">
+                <h4 style="padding-bottom: 15px; border-bottom:1px solid grey">MOVIE FACTS</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Release Date<span class="badge rounded-pill bg-dark" style="margin-left:10px">@Model.ReleaseDate</span></li>
+                    <li class="list-group-item">Run Time<span class="badge rounded-pill bg-dark" style="margin-left:10px">@Model.RunTime</span></li>
+                    <li class="list-group-item">Box Office<span class="badge rounded-pill bg-dark" style="margin-left:10px">@Model.Revenue</span></li>
+                    <li class="list-group-item">Budget<span class="badge rounded-pill bg-dark" style="margin-left:10px">@Model.Budget</span></li>
+                    <li class="list-group-item">balabala<span class="badge rounded-pill bg-dark" style="margin-left:10px">Dark</span></li>
                 </ul>
             </div>
+            <div class="row mt-2">
+                <h4 style="padding-bottom: 15px; border-bottom:1px solid grey">TRAILERS</h4>
+                <ul class="list-group list-group-flush">
+                @foreach (var trailer in @Model.Trailers)
+                {
+                    <li class="list-group-item"><a href="@trailer.TrailerUrl" style="text-decoration: none; color: black">@trailer.Name</a></li>
+                    
+                }
+            </ul>
+            </div>
+            
         </div>
-        <div class="col-8">
-            <p>
-                MOVIE FACTS
-            </p>
-            @foreach(var cast in Model.Casts)
-            {
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item col-2 border-start-0 border-end-0"><img src="@cast.ProfilePath" style="border-radius:50%; height:50px; width:50px" /></li>
-                    <li class="list-group-item col-5 border-start-0 border-end-0">@cast.Name</li>
-                    <li class="list-group-item col-5 border-start-0 border-end-0">@cast.Character</li>
-                </ul>
-            }
+        <div class="col-xl-8 col-lg-8 mt-2 p-3 mb-2">
+            <h4 style="padding-bottom: 15px; border-bottom:1px solid grey">CAST</h4>
+            <ul class="list-group list-group-flush">
+                @foreach (var cast in Model.Casts)
+                {
+                    <li class="list-group-item">
+                        <img src="@cast.ProfilePath" height=60px>
+                        <span style="margin-top: 15px; margin-left:60px;position:absolute">@cast.Name</span>
+                        <span style="margin-top: 15px; margin-left:300px;position:absolute">@cast.Character</span>
+                    </li>
+                }
+            </ul>
         </div>
     </div>
 </div>

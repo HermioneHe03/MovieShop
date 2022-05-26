@@ -39,7 +39,7 @@ namespace MovieShop.Controllers
         [HttpGet]
         public IActionResult TopRatedMovies()
         {
-            return View("Privacy");
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
