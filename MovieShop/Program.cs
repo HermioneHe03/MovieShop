@@ -5,6 +5,7 @@ using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Application_Core.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +14,16 @@ builder.Services.AddControllersWithViews();
 
 // .NET Core has built-in Depedency Injection, first class citizen in .NET Core
 // Registrations
-builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<ICastRepository, CastRepository>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Add services to the container.
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 // older .NET Framework, then to do DI we had to rely on 3rd party libraries such as Autofac, Ninject
 
