@@ -30,6 +30,8 @@ namespace Application_Core.Models
         public int? RunTime { get; set; }
         public decimal? Price { get; set; }
 
+        public decimal AvgRating { get; set; }
+
         public List<GenreModel> Genres { get; set; }
         public List<CastModel> Casts { get; set; }
         public List<TrailerModel> Trailers { get; set; }
