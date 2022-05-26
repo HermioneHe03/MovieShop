@@ -13,12 +13,12 @@ show links
 Register -> account/register
 Login ->account/login*@
 
- <div class="text-end" style="display: flex;">
 
-
-        <a class="nav-link text-dark" href="/Account/Register"><button id="loginbutton" class="btn btn-outline-light">Register </button></a>
-
-
-        <a class="nav-link text-dark" href="/Account/Login"><button id="registerbutton" class="btn btn-outline-light">Login </button></a>
-
+<div class="text-end text-white">
+        <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Login">
+            Log in
+        </a>
+        <a class="btn btn-outline-light me-2" asp-controller="Account" asp-action="Register">
+            Register
+        </a>
     </div>
